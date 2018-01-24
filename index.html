@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQuery Methods Tutorial</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            // hide all sections AFTER .hide-show.toggle
+            $("#slideUp-Down-Toggle").hide();
+            $("#fadeIn-Out").hide();
+            // hide, show, toggle examples
+            $("#hide-show-toggle button:first").click(function(){
+                $("[alt='seahawks logo']").hide();
+                $("#hide-show-toggle").show();
+                $("#description-text").html("Now choose <span>Show</span> to display the picture.")
+            });
+            $("#hide-show-toggle button:nth-of-type(2)").click(function(){
+                $("[alt='seahawks logo']").show();
+                $("#hide-show-toggle p:nth-of-type(1)").hide();
+                $("#hide-show-toggle p:nth-of-type(2)").show("slow");
+                $("#hide-show-toggle button:nth-of-type(3)").show();
+                $("#description-text").html("Now try out the <span>Toggle</span> option.")
+            });
+            $("#hide-show-toggle button:nth-of-type(3)").click(function(){
+                $("[alt='seahawks logo']").toggle();
+                $("#description-text").html("Use <span>Toggle</span> to alternate between hiding and displaying the picture.");
+                $("#hide-show-toggle a").show();
+            });
+            // hide previous section, show the next
+            $("#hide-show-toggle a").click(function(){
+                $("#hide-show-toggle").hide();
+                $("#slideUp-Down-Toggle").slideDown();
+                $("#description-text").html("Click the <span>slideUp</span> button to transition the image up and away.")
+            });
+            // slideUp, slideDown, slideToggle examples
+            $("#slideUp-Down-Toggle button:first").click(function(){
+                $("[alt='real women love seahawks']").slideUp();
+                $("#slideUp-Down-Toggle button:nth-of-type(2)").show();
+                $("#slideUp-Down-Toggle p:nth-of-type(2)").show("slow");
+                $("#description-text").html("Now try out the <span>slideDown</span> button to slide the picture back down into view.");
+            });
+            $("#slideUp-Down-Toggle button:nth-of-type(2)").click(function(){
+                $("[alt='real women love seahawks']").slideDown();
+                $("#slideUp-Down-Toggle p:nth-of-type(1)").hide();
+                $("#slideUp-Down-Toggle p:nth-of-type(2)").hide();
+                $("#slideUp-Down-Toggle button:nth-of-type(3)").show("slow");
+                $("#slideUp-Down-Toggle p:nth-of-type(3)").show("slow");
+                $("#description-text").html("Try out the <span>slideToggle</span> button now to make the image disappear (slideUp) and reappear (slideDown).");
+            });
+            $("#slideUp-Down-Toggle button:nth-of-type(3)").click(function(){
+                $("[alt='real women love seahawks']").slideToggle("slow");
+                $("#slideUp-Down-Toggle a").show();
+            });
+            // hide previous section, show the next
+            $("#slideUp-Down-Toggle a").click(function(){
+                $("#slideUp-Down-Toggle").hide();
+                $("#fadeIn-Out").slideDown();
+                $("#description-text").html("Click the <span>fadeIn</span> button to see what happens.")
+            });
+            // fadeIn, fadeOut examples
+            $("#fadeIn-Out button:nth-of-type(1)").click(function(){
+                $("#fadeIn-Out img").fadeIn(1400, function()  {$("#fadeIn-Out button:nth-of-type(2)").fadeIn()});
+                $("#description-text").html("Select the <span>fadeOut</span> button to watch the image fade away.")
+            });
+            $("#fadeIn-Out button:nth-of-type(2)").click(function(){
+                $("#fadeIn-Out img").fadeOut();
+                $("#fadeIn-Out a").fadeIn();
+            });
+            $("#fadeIn-Out a").click(function(){
+                $(".effects").hide();
+                $(".css-methods").slideDown();
+                var backColor = $(".css-methods button").css("background-color");
+                var textColor = $(".css-methods button").css("color");
+                $("#description-text").html("Notice this button's background color is <span>" + backColor + "</span>. The text color is <span>" + textColor + "</span>.");
+            });
+            $(".css-methods button").click(function(){
+                $(".css-methods button").addClass("reverse");
+                var newbackColor = $(".reverse").css("background-color");
+                var newtextColor = $(".reverse").css("color");
+                $("#description-text").html("Adding a new class changed the properties of the button to some already established in our CSS file. Notice the button's background color is now <span>" + newbackColor + "</span> and the text color is <span>" + newtextColor + "</span>.");
+                $(".css-methods a").show();
+            });
+            // hide previous section, show the next
+            $(".css-methods a").click(function(){
+                $(".css-methods").hide();
+                $(".manipulation").slideDown();
+                $("#description-text").text("Moving right along.");
+            });
+            // click, html, text, prepend, append, before, after, val, data examples
+            $(".manipulation button:nth-of-type(1)").click(function(){
+                $(".manipulation p:nth-of-type(2)").slideUp();
+                $(".manipulation p:nth-of-type(3)").slideDown();
+                $("#description-text").html("You just triggered a <span>.click()</span> event.");
+                $(".manipulation button:nth-of-type(1)").hide();
+                $(".manipulation button:nth-of-type(2)").show();
+            });
+            $(".manipulation button:nth-of-type(2)").click(function(){
+                $("#description-text").text("This is just some plain text added by the .text() method. No frills, no tags. And if you try to add a tag, like <br>, it shows up as, you guessed it, text.");
+                $("#description-text").append("<br><br>To add tags that can be styled, use <span>.html()</span>.")
+                $(".manipulation p:nth-of-type(3)").slideUp();
+                $(".manipulation p:nth-of-type(4)").slideDown();
+                $(".manipulation button:nth-of-type(2)").hide();
+                $(".manipulation button:nth-of-type(3)").show();
+                $(".manipulation button:nth-of-type(4)").show();
+                $(".manipulation button:nth-of-type(5)").show();
+                $(".manipulation button:nth-of-type(6)").show();
+            });
+            $(".manipulation button:nth-of-type(3)").click(function(){
+                $("#description-text").prepend("I've been added via the <span>.prepend()</span> method. I go <span>inside element tags</span>, at the <span>beginning</span>. Notice I'm <span>inside</span> the box, but <span>before</span> all the other stuff already here.<br><br>");
+            });
+            $(".manipulation button:nth-of-type(4)").click(function(){
+                $("#description-text").append("<br><br>I've been added via the <span>.append()</span> method. I go <span>inside element tags</span>, at the <span>end</span>. Notice I'm <span>inside</span> the box, but <span>at the end of</span> all the other stuff already here.");
+            });
+            $(".manipulation button:nth-of-type(5)").click(function(){
+                $("#description-text").before("<img src='images/seahawks_carving.jpg' alt='carved pumpkin'>");
+                $("#description-text").css("width","300");
+                $("#description-text").html("<span>.before()</span> adds things <span>before</span> the actual element called. Notice the picture was placed <span>before, and outside</span>, this box.")
+            });
+            $(".manipulation button:nth-of-type(6)").click(function(){
+                $("#description-text").after("<img src='images/seahawks_pumpkin.jpg' alt='carved pumpkin'>");
+                $("#description-text").html("<span>.after()</span> adds things <span>after</span> the actual element called. Notice the picture was placed <span>after, and outside</span>, this box.")
+                $(".manipulation a:nth-of-type(1)").show();
+            });
+            $(".manipulation a:nth-of-type(1)").click(function(){
+                $("[alt='carved pumpkin']").css("display", "none");
+                $("#description-text").css("width","648");
+                $(".manipulation p:nth-of-type(4)").slideUp();
+                $(".manipulation p:nth-of-type(5)").slideDown();
+                $(".manipulation button:nth-of-type(3)").hide();
+                $(".manipulation button:nth-of-type(4)").hide();
+                $(".manipulation button:nth-of-type(5)").hide();
+                $(".manipulation button:nth-of-type(6)").hide();
+                $(".manipulation a:nth-of-type(1)").hide();
+                $("label").css("display", "inline");
+                $("#name").show();
+                $(".manipulation button:nth-of-type(7)").show();
+                $("#description-text").html("Type in your name and choose the <span>Value</span> button.");
+            });
+            $(".manipulation button:nth-of-type(7)").click(function(){
+                var inputName = $("#name").val();
+                $("#name").data("name", inputName);
+                $("#description-text").html("Well hello there <span>" + inputName + "</span>. I used the <span>.value()</span> method to get the value you entered in the field.<br><br>Now change the value you just entered and then choose the <span>Data</span> button.");
+                $(".manipulation p:nth-of-type(6)").slideDown();
+                $(".manipulation button:nth-of-type(8)").show();
+            });
+            $(".manipulation button:nth-of-type(8)").click(function(){
+                var inputName = $("#name").val();
+                $("#description-text").html("You've changed your name to <span>" + inputName+ "</span> but thanks to the <span>.data()</span> method, I was able to keep track of your old input which was <span>" + $("#name").data("name") +"</span>.");
+                $(".manipulation a:nth-of-type(2)").show();
+            });
+            $(".manipulation a:nth-of-type(2)").click(function(){
+                $(".manipulation").slideUp();
+                $("#description-text").text("Hopefully you've learned a thing or two along the way. I certainly did.");
+                $("#description-text").before("<img src='images/diehard_seahawk.jpg' alt='Win Lose or Tie'><br>");
+                $("#description-text").before("<a href='javascript:history.go(0)'>Click to restart this tutorial...</a>");
+                $("a:nth-of-type(1)").show();
+            });
+        })
+    </script>
+</head>
+<body>
+    <h1>jQuery Methods - The Basics</h1>
+    <p>I’m learning jQuery Methods, and now you can too! This document will address the basics and reveal some of the cool stuff you can do with jQuery methods. Point and click away. Happy learning.</p>
+    <div class="effects">
+        <p>Let’s start with <span>Effects</span> methods. These methods let you do simple things like hide or show webpage elements and add nifty animations.</p>
+        <div id="hide-show-toggle">
+            <p><span>.hide()</span> and <span>.show</span> do exactly what you would think. They hide and show things.</p>
+            <p><span>.toggle()</span> alternates between showing and hiding each time the method is called.</p>
+            <img src="images/seahawks_logo.png" alt="seahawks logo">
+            <button>Hide</button>
+            <button>Show</button>
+            <button>Toggle</button>
+            <a href="#">Click here to move on...</a>
+        </div>
+        <div id="slideUp-Down-Toggle">
+            <p><span>.slideUp</span> also hides things but with a little built in effect. It transitions an element up until it disappears altogether.</p>
+            <p><span>.slideDown</span>, as you may have guessed, does the opposite. It transitions things down until they are fully displayed.</p>
+            <p><span>.slideToggle</span> does both by alternating between sliding things Up and Down. Select the button, then select it again, to see for yourself.</p>
+            <img src="images/seahawks_woman.jpg" alt="real women love seahawks">
+            <button>slideUp</button>
+            <button>slideDown</button>
+            <button>slideToggle</button>
+            <a href="#">Click here to move on...</a>
+        </div>
+        <div id="fadeIn-Out">
+            <p><span>.fadeIn</span> and <span>.fadeOut</span> also make things hide and display, using a fade effect.</p>
+            <img src="images/im_in.jpg" alt="I'm in.">
+            <button>fadeIn</button>
+            <button>fadeOut</button>
+            <a href="#">Click here to move on...</a>
+        </div>
+    </div>
+    <div class="css-methods">
+        <p>Let’s move on to <span>CSS</span> methods. These methods let you access, or even change, CSS properties.</p>
+        <p><span>.addClass()</span> adds a class to the specified element. That might come in handy if you've already set up some CSS styling for that class.</p>
+        <button>addClass</button>
+        <a href="#">Click here to move on...</a>
+    </div>
+    <div class="manipulation">
+        <p>Lastly, lets take a look at some <span>Events</span> and <span>Manipulation</span> methods.</p>
+        <p>Every time you've clicked things on this webpage, you've triggered the <span>.click()</span> event. You clicked, and the webpage took a specified action. It's pretty much that simple.</p>
+        <p>Notice the textbox below the button just changed, as it has all along. Well that was accomplished by using either the <span>.text()</span> or <span>.html()</span> methods which manipulate the actual webpage. What's the difference? Click the button again to find out.</p>
+        <p>So what if you don't want to overwrite existing elements? That's where <span>.prepend()</span>, <span>.append()</span>, <span>.before()</span>, and <span>.after()</span> all come in handy. Whoa, that's a lot of manipulation methods. What do they all do? Press those buttons and find out!</p>
+        <p>Almost done. We're going to end with a quick look at the <span>.val()</span> and <span>.data()</span> methods. <span>.val()</span> is primarily used to get, or sometimes set, values in form fields.</p>
+        <p><span>.data()</span> gets, or sets, arbitrary data for an element. Wait, isn't that what <span>.val()</span>does too? Well not quite. In our same example, using the <span>.data()</span> method, I can store the value you just keyed in, and use it <span>later</span>, even if you change that value.</p>
+        <button>Click me, please.</button>
+        <button>Click me again...</button>
+        <button>Prepend</button>
+        <button>Append</button>
+        <button>Before</button>
+        <button>After</button>
+        <button>Value</button>
+        <button>Data</button>
+        <label for="name">Your Name</label>
+        <input type="text" id="name" value="Type in your name...">
+        <a href="#">Click here to continue...</a>
+        <a href="#">Click here to wrap up...</a>
+    </div>
+    <p id="description-text">Choose the <span>Hide</span> button to hide the picture.</p>
+
+</body>
+</html>

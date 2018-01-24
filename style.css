@@ -1,0 +1,138 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    width: 970px;
+    padding: 15px;
+}
+h1, h2{
+    padding: 5px 0px;
+    color: #002244;
+}
+p{
+    padding: 5px 0px;
+}
+span{
+    color: #69be28;
+    font-style: italic;
+    font-weight: bold;
+}
+a{
+    display: none;
+    width: 700px;
+    padding: 20px;
+    text-decoration-line: none;
+    font-size: 120%;
+    font-weight: bold;
+    color: #a5acaf;
+    text-align: center;
+}
+img{
+    width: 250px;
+    vertical-align: top;
+}
+button{
+    width: fit-content;
+    padding: 10px;
+    background-color: #002244;
+    color: #69be28;
+    box-shadow: 3px 3px 6px #252525;
+    border-radius: 5px;   
+    font-style: italic;
+    font-weight: bold;
+    font-size: 125%;
+    vertical-align: top;
+    margin: 20px 0px 0px 40px;
+}
+.effects{
+    display: inline-block;
+    width: 700px;
+    margin: 5px 0px 0px 20px;
+    padding-top: 5px;
+    border-top: 1px solid #a5acaf;
+}
+#hide-show-toggle button:nth-of-type(3), #hide-show-toggle p:nth-of-type(2){
+        display: none;
+}
+#slideUp-Down-Toggle{
+    width: 700px;
+    margin: 5px 0px 0px 20px;
+}
+    #slideUp-Down-Toggle img{
+        width: 200px;
+    }
+    #slideUp-Down-Toggle button:nth-of-type(2), #slideUp-Down-Toggle p:nth-of-type(2){
+        display: none;
+    }
+    #slideUp-Down-Toggle button:nth-of-type(3), #slideUp-Down-Toggle p:nth-of-type(3){
+        display: none;
+    }
+#fadeIn-Out{
+    width: 700px;
+    margin: 5px 0px 0px 20px;
+}
+    #fadeIn-Out button:nth-of-type(2){
+        display: none;
+    }
+    #fadeIn-Out img{
+        display: none;
+    }
+.css-methods{
+    display: none;
+    width: 700px;
+    border-top: 1px solid #a5acaf;
+    margin: 5px 0px 0px 20px;
+}
+.manipulation{
+    display: none;
+    width: 700px;
+    border-top: 1px solid #a5acaf;
+    margin: 5px 0px 0px 20px;
+}
+    .manipulation p, .manipulation button{
+        display: none;
+    }
+    .manipulation p:nth-of-type(1), .manipulation p:nth-of-type(2){
+        display: inline-block;
+    }
+    .manipulation button:nth-of-type(1){
+        display: inline-block;
+    }
+#description-text{
+    display: inline-block;
+    width: 648px;
+    padding: 10px;
+    margin: 10px 25px;
+    text-align: center;
+    vertical-align: top;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 125%;
+    color: #002244;
+    border: 1px solid #69be28;
+}
+.reverse{
+    color: #002244;
+    background-color: #69be28;
+}
+#name{
+    display: none;
+    margin-top: 20px;
+    padding: 5px;
+    color: #69be28;
+    font-style: italic;
+    font-weight: bold;
+    border: 1px solid #002244;
+    border-radius: 5px;
+}
+label{
+    display: none;
+    padding: 0px 5px 0px 15px;
+    color: #002244;
+    font-style: italic;
+    font-weight: bold;
+}
+[alt="Win Lose or Tie"]{
+    margin-left: 250px;
+}
